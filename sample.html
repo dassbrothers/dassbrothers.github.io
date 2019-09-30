@@ -1,0 +1,302 @@
+<!--
+   sample.html
+   
+   Copyright 2019 sourav <sourav@sourav-V530S-07ICB>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>SQL Queries</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	
+	<style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+	</style>
+	
+</head>
+
+<body>
+	<div>
+	<form action="nextpage.html">
+		Coverage Objects : 
+		<div id="top_container">
+			<div="child">
+				<select class="coverage_object" >
+						<option value="-">Select</option>
+						<option value = "vout_cg1"> Vout_cg1 </option>
+						<option value = "vdd_cg1"> vdd_cg1 </option>
+						<option value = "vout_cg2"> vout_cg2 </option>
+						<option value = "vin_cg2"> vin_cg2 </option>
+				</select>
+				
+				<select id="coverage_type" >
+						<option value="-">Select</option>
+				</select>
+			<br>
+			</div>
+		</div>
+		<input type="button" id="add" value="Add new Coverage Object"> 
+		
+			<!-- <div>
+				<input type="checkbox" id="vdd" value="vdd"> Vdd </input> 								
+				<select id = "vddArtefact">
+				  <option value="-">Select</option>
+				  <option value="range">Range</option>
+				  <option value="level">Level</option>
+				  <option value="glitch">Glitch</option>
+				</select>
+				<br>
+				
+				<input type="checkbox" id="vout" value="vout"> Vout
+				<select id = "voutArtefact">
+				  <option value="-">Select</option>
+				  <option value="range">Range</option>
+				  <option value="level">Level</option>
+				  <option value="glitch">Glitch</option>
+				</select>
+				<br>
+				<input type="checkbox" id="vin" value="vin"> Vin
+				<select id = "vinArtefact">
+				  <option value="-">Select</option>
+				  <option value="range">Range</option>
+				  <option value="level">Level</option>
+				  <option value="glitch">Glitch</option>
+				</select>
+				<br><br>
+				
+			</div> -->
+			<input type="button" id="but" value="Submit">
+			<p id="demo"></p>
+			
+		<div id = "data" style="display: none">		
+			<p> Each column wiil have filter and sort options. </p>
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name">
+			<!-- <table id="myTable">
+			  <tr>
+				<th>Company</th>
+				<th>Contact</th>
+				<th>Country</th>
+				<th>Select / (Select All)</th>
+			  </tr>
+			  <tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>Germany</td>
+				<th><input type='checkbox' id = 'row1'></th>
+			  </tr>
+			  <tr>
+				<td>Centro comercial Moctezuma</td>
+				<td>Francisco Chang</td>
+				<td>Mexico</td>
+				<th><input type='checkbox' id = 'row2'></th>
+			  </tr>
+			  <tr>
+				<td>Ernst Handel</td>
+				<td>Roland Mendel</td>
+				<td>Austria</td>
+				<th><input type='checkbox' id = 'row3'></th>
+			  </tr>
+			  <tr>
+				<td>Island Trading</td>
+				<td>Helen Bennett</td>
+				<td>UK</td>
+				<th><input type='checkbox' id = 'row4'></th>
+			  </tr>
+			  <tr>
+				<td>Laughing Bacchus Winecellars</td>
+				<td>Yoshi Tannamuri</td>
+				<td>Canada</td>
+				<th><input type='checkbox' id = 'row5'></th>
+			  </tr>
+			  <tr>
+				<td>Magazzini Alimentari Riuniti</td>
+				<td>Giovanni Rovelli</td>
+				<td>Italy</td>
+				<th><input type='checkbox' id = 'row6'></th>
+			  </tr>
+			</table> -->
+			<table>
+ <tr>
+   <th>Sim ID</th>
+   <th>Top Module <br>Simulated</th>
+   <th>Coverage Monitor <br>Present</th>
+   <th>Vin<br>(V)</th>
+   <th>I_Load<br>(mA)</th>
+   <th>Process</th>
+   <th>Voltage</th>
+   <th>Temperature</th>
+ </tr>
+ <tr>
+   <td>1</td>
+   <td>PSU</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.8</td>
+   <td>2</td>
+   <td>ss</td>
+   <td>1.8</td>
+   <td>27</td>
+ </tr>
+ <tr>
+   <td>2</td>
+   <td>PSU</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.8</td>
+   <td>2</td>
+   <td>sf</td>
+   <td>1.8</td>
+   <td>27</td>
+ </tr>
+ <tr>
+   <td>3</td>
+   <td>PSU</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.8</td>
+   <td>2</td>
+   <td>ss</td>
+   <td>1.8</td>
+   <td>29</td>
+ </tr>
+ <tr>
+   <td>4</td>
+   <td>LDO</td>
+   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+   <td>1.85</td>
+   <td>2.5</td>
+   <td>tt</td>
+   <td>1.8</td>
+   <td>29</td>
+ </tr>
+ <tr>
+   <td>5</td>
+   <td>LDO</td>
+   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+   <td>1.8</td>
+   <td>2.2</td>
+   <td>fs</td>
+   <td>1.7</td>
+   <td>45</td>
+ </tr>
+ <tr>
+   <td>6</td>
+   <td>LDO</td>
+   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+   <td>1.85</td>
+   <td>2.5</td>
+   <td>tt</td>
+   <td>1.8</td>
+   <td>26</td>
+ </tr>
+ <tr>
+   <td>7</td>
+   <td>LDO</td>
+   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+   <td>1.8</td>
+   <td>2</td>
+   <td>ss</td>
+   <td>1.8</td>
+   <td>22</td>
+ </tr>
+ <tr>
+   <td>8</td>
+   <td>TOP</td>
+   <td>Cov_vdd : deglitch</td>
+   <td>1.85</td>
+   <td>1.8</td>
+   <td>sf</td>
+   <td>1.8</td>
+   <td>29</td>
+ </tr>
+ <tr>
+   <td>9</td>
+   <td>TOP</td>
+   <td>Cov_vdd : deglitch</td>
+   <td>1.8</td>
+   <td>2</td>
+   <td>ss</td>
+   <td>1.8</td>
+   <td>29</td>
+ </tr>
+ <tr>
+   <td>10</td>
+   <td>TOP</td>
+   <td>Cov_vdd : deglitch</td>
+   <td>1.85</td>
+   <td>2.5</td>
+   <td>tt</td>
+   <td>1.8</td>
+   <td>29</td>
+ </tr>
+ <tr>
+   <td>11</td>
+   <td>TOP</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.8</td>
+   <td>2.2</td>
+   <td>ff</td>
+   <td>1.75</td>
+   <td>41</td>
+ </tr>
+ <tr>
+   <td>12</td>
+   <td>TOP</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.85</td>
+   <td>2.5</td>
+   <td>tt</td>
+   <td>1.8</td>
+   <td>26</td>
+ </tr>
+ <tr>
+   <td>13</td>
+   <td>TOP</td>
+   <td>Cov_vout : range<br>Cov_vout : level</td>
+   <td>1.8</td>
+   <td>2.2</td>
+   <td>ff</td>
+   <td>1.75</td>
+   <td>41</td>
+ </tr>
+ <tr>
+			<input type="submit" value="Submit" >
+		</div>
+	</form>
+	</div>
+</body>
+ <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+<script src="demo_script_src.js"></script>
+</html>

@@ -1,0 +1,280 @@
+<!--
+   nextpage.html
+   
+   Copyright 2019 sourav <sourav@sourav-V530S-07ICB>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Filtered Data</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	
+	<style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+	</style>
+</head>
+<body>
+<h5>Outputs:</h5>
+<form> 
+<div>
+	<input type="checkbox" name="Sim_ID" value="Sim_ID"> Sim_ID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="disp"> Display(default) </option>
+		<option value="cnt"> Count </option>
+		<!-- <option value="union"> Union </option>
+		<option value="intersection"> Intersection </option>
+		<option value="max"> Max </option>
+		<option value="min"> Min </option>
+		<option value="avg"> Avg. </option> -->
+	</select>
+	
+	<!-- <input type="radio" name="Simoper" value="count"> Count
+	<input type="radio" name="Simoper" value="union"> Union
+	<input type="radio" name="Simoper" value="intersection"> Intersection
+	<input type="radio" name="Simoper" value="max"> Max
+	<input type="radio" name="Simoper" value="min"> Min
+	<input type="radio" name="Simoper" value="avg"> Average --> <br>
+
+	<input type="checkbox" name="Bins" value="Bins"> Bins &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="disp"> Display (default) </option>
+		<option value="cnt"> Count </option>
+		<option value="union"> Union </option>
+		<option value="intersection"> Intersection </option>
+		<option value="max"> Max </option>
+		<option value="min"> Min </option>
+		<option value="avg"> Avg. </option>
+	</select>
+	<!-- <input type="radio" name="Binsoper" value="count"> Count
+	<input type="radio" name="Binsoper" value="union"> Union
+	<input type="radio" name="Binsoper" value="intersection"> Intersection
+	<input type="radio" name="Binsoper" value="max"> Max
+	<input type="radio" name="Binsoper" value="min"> Min
+	<input type="radio" name="Binsoper" value="avg"> Average --><br>
+
+	<input type="checkbox" name="Time" value="Time"> Time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="disp"> Display (default) </option>
+		<option value="cnt"> Count </option>
+		<option value="union"> Union </option>
+		<option value="intersection"> Intersection </option>
+		<option value="max"> Max </option>
+		<option value="min"> Min </option>
+		<option value="avg"> Avg. </option>
+	</select>
+	<!--<input type="radio" name="Timeoper" value="count"> Count
+	<input type="radio" name="Timeoper" value="union"> Union
+	<input type="radio" name="Timeoper" value="intersection"> Intersection
+	<input type="radio" name="Timeoper" value="max"> Max
+	<input type="radio" name="Timeoper" value="min"> Min
+	<input type="radio" name="Timeoper" value="avg"> Average --><br>
+
+	<!-- <input type="checkbox" name="Range" value="Range"> Range &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="cnt"> Count </option>
+		<option value="union"> Union </option>
+		<option value="intersection"> Intersection </option>
+		<option value="max"> Max </option>
+		<option value="min"> Min </option>
+		<option value="avg"> Avg. </option>
+	</select>
+	<input type="radio" name="Rangeoper" value="count"> Count
+	<input type="radio" name="Rangeoper" value="union"> Union
+	<input type="radio" name="Rangeoper" value="intersection"> Intersection
+	<input type="radio" name="Rangeoper" value="max"> Max
+	<input type="radio" name="Rangeoper" value="min"> Min
+	<input type="radio" name="Rangeoper" value="avg"> Average --> <br><br>
+
+	<input type="checkbox" name="Incremental Coverage" value="Incremental Coverage"> Incremental Coverage<br>
+	<input type="checkbox" name="comperative Study" value="comperative Study"> comperative Study<br>  
+
+</div>
+<h5>Inputs:</h5>
+
+<div>
+	<!-- <input type="checkbox" name="Sim_ID" value="Sim_ID"> Sim_ID &nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="gt">Greater than </option>
+		<option value="lt">Less than </option>
+		<option value="eq">Equals </option>
+		<option value="neq">Not equals</option>
+		<option value="btwn"> Between </option>
+		<option value="nbtwn"> Not Between </option>
+	</select>
+	<input type="text" name="simIDRange1" value="">
+	<input type="text" name="simIDRange2" value="">
+	<br> -->
+
+	<input type="checkbox" name="Bins" value="Bins"> Bins &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="gt">Greater than </option>
+		<option value="lt">Less than </option>
+		<option value="eq">Equals </option>
+		<option value="neq">Not equals</option>
+		<option value="btwn"> Between </option>
+		<option value="nbtwn"> Not Between </option>
+	</select>
+	<input type="text" name="binRange1" value="">
+	<input type="text" name="binRange2" value="">
+	<!--<input type="radio" name="between" value=""> Between
+	<input type="radio" name="not_between" value=""> Not_Between
+	<input type="radio" name="greater" value=""> Greater_Than
+	<input type="radio" name="less" value=""> Less_Than
+	<input type="radio" name="equal" value=""> Equal to
+	<input type="radio" name="not_equal" value=""> Not_Equal_to -->
+	<br>
+
+	<input type="checkbox" name="Time" value="Time"> Time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="gt">Greater than </option>
+		<option value="lt">Less than </option>
+		<option value="eq">Equals </option>
+		<option value="neq">Not equals </option>
+		<option value="btwn"> Between </option>
+		<option value="nbtwn"> Not Between </option>
+	</select>
+	<input type="text" name="timeRange1" value="">
+	<input type="text" name="timeRange2" value="">
+	<!-- <input type="radio" name="between" value=""> Between
+	<input type="radio" name="not_between" value=""> Not_Between
+	<input type="radio" name="greater" value=""> Greater_Than
+	<input type="radio" name="less" value=""> Less_Than
+	<input type="radio" name="equal" value=""> Equal to
+	<input type="radio" name="not_equal" value=""> Not_Equal_to --><br>
+
+	<!--<input type="checkbox" name="Level" value="Level"> Level &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="gt">Greater than </option>
+		<option value="lt">Less than </option>
+		<option value="eq">Equals </option>
+		<option value="neq">Not equals</option>
+		<option value="btwn"> Between </option>
+		<option value="nbtwn"> Not Between </option>
+	</select>
+	<input type="text" name="timeRange1" value="">
+	<input type="text" name="timeRange2" value="">
+	 <input type="radio" name="between" value=""> Between
+	<input type="radio" name="not_between" value=""> Not_Between
+	<input type="radio" name="greater" value=""> Greater_Than
+	<input type="radio" name="less" value=""> Less_Than
+	<input type="radio" name="equal" value=""> Equal to
+	<input type="radio" name="not_equal" value=""> Not_Equal_to 
+	<br>
+-->
+	
+	<input type="checkbox" name="HitRatio" value="HitRatio"> Hit_Ratio &nbsp;
+	<select>
+		<option value="sel"> Select </option>
+		<option value="gt">Greater than </option>
+		<option value="lt">Less than </option>
+		<option value="eq">Equals </option>
+		<option value="neq">Not equals</option>
+		<option value="btwn"> Between </option>
+		<option value="nbtwn"> Not Between </option>
+	</select>
+	<input type="text" name="hr" value="">
+	<input type="text" name="hr" value="">
+	<!-- <input type="radio" name="hr" value=""> Between
+	<input type="radio" name="hr" value=""> Not_Between
+	<input type="radio" name="hr" value=""> Greater_Than
+	<input type="radio" name="hr" value=""> Less_Than
+	<input type="radio" name="hr" value=""> Equal to
+	<input type="radio" name="hr" value=""> Not_Equal_to -->
+	<br>
+<!--
+<div>
+	<h5>Target </h5>
+	Lower Bound : <input type = number step=".01" id="lowerBound">  Upper Bound : <input type = number step=".01" id="upperBound">  
+</div>
+-->
+	<input type="submit" value="Submit" > <br><br>
+</div> 
+
+<div id = "data">		
+			<!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"> -->
+			<table id="myTable">
+			  <tr>
+				<th>Company</th>
+				<th>Contact</th>
+				<th>Country</th>
+			  </tr>
+			  <tr>
+				<td>Alfreds Futterkiste</td>
+				<td>Maria Anders</td>
+				<td>Germany</td>
+			  </tr>
+			  <tr>
+				<td>Centro comercial Moctezuma</td>
+				<td>Francisco Chang</td>
+				<td>Mexico</td>
+			  </tr>
+			  <tr>
+				<td>Ernst Handel</td>
+				<td>Roland Mendel</td>
+				<td>Austria</td>
+			  </tr>
+			  <tr>
+				<td>Island Trading</td>
+				<td>Helen Bennett</td>
+				<td>UK</td>
+			  </tr>
+			  <tr>
+				<td>Laughing Bacchus Winecellars</td>
+				<td>Yoshi Tannamuri</td>
+				<td>Canada</td>
+			  </tr>
+			  <tr>
+				<td>Magazzini Alimentari Riuniti</td>
+				<td>Giovanni Rovelli</td>
+				<td>Italy</td>
+			  </tr>
+			</table>
+		</div>
+
+</form> 
+</body>
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+<script src="demo_script_src1.js"></script>
+
+
+</html>
