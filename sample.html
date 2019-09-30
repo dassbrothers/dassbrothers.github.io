@@ -105,7 +105,7 @@
 			
 		<div id = "data" style="display: none">		
 			<p> Each column wiil have filter and sort options. </p>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name">
+			
 			<!-- <table id="myTable">
 			  <tr>
 				<th>Company</th>
@@ -151,148 +151,158 @@
 			  </tr>
 			</table> -->
 			<table>
- <tr>
-   <th>Sim ID</th>
-   <th>Top Module <br>Simulated</th>
-   <th>Coverage Monitor <br>Present</th>
-   <th>Vin<br>(V)</th>
-   <th>I_Load<br>(mA)</th>
-   <th>Process</th>
-   <th>Voltage</th>
-   <th>Temperature</th>
- </tr>
- <tr>
-   <td>1</td>
-   <td>PSU</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.8</td>
-   <td>2</td>
-   <td>ss</td>
-   <td>1.8</td>
-   <td>27</td>
- </tr>
- <tr>
-   <td>2</td>
-   <td>PSU</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.8</td>
-   <td>2</td>
-   <td>sf</td>
-   <td>1.8</td>
-   <td>27</td>
- </tr>
- <tr>
-   <td>3</td>
-   <td>PSU</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.8</td>
-   <td>2</td>
-   <td>ss</td>
-   <td>1.8</td>
-   <td>29</td>
- </tr>
- <tr>
-   <td>4</td>
-   <td>LDO</td>
-   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
-   <td>1.85</td>
-   <td>2.5</td>
-   <td>tt</td>
-   <td>1.8</td>
-   <td>29</td>
- </tr>
- <tr>
-   <td>5</td>
-   <td>LDO</td>
-   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
-   <td>1.8</td>
-   <td>2.2</td>
-   <td>fs</td>
-   <td>1.7</td>
-   <td>45</td>
- </tr>
- <tr>
-   <td>6</td>
-   <td>LDO</td>
-   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
-   <td>1.85</td>
-   <td>2.5</td>
-   <td>tt</td>
-   <td>1.8</td>
-   <td>26</td>
- </tr>
- <tr>
-   <td>7</td>
-   <td>LDO</td>
-   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
-   <td>1.8</td>
-   <td>2</td>
-   <td>ss</td>
-   <td>1.8</td>
-   <td>22</td>
- </tr>
- <tr>
-   <td>8</td>
-   <td>TOP</td>
-   <td>Cov_vdd : deglitch</td>
-   <td>1.85</td>
-   <td>1.8</td>
-   <td>sf</td>
-   <td>1.8</td>
-   <td>29</td>
- </tr>
- <tr>
-   <td>9</td>
-   <td>TOP</td>
-   <td>Cov_vdd : deglitch</td>
-   <td>1.8</td>
-   <td>2</td>
-   <td>ss</td>
-   <td>1.8</td>
-   <td>29</td>
- </tr>
- <tr>
-   <td>10</td>
-   <td>TOP</td>
-   <td>Cov_vdd : deglitch</td>
-   <td>1.85</td>
-   <td>2.5</td>
-   <td>tt</td>
-   <td>1.8</td>
-   <td>29</td>
- </tr>
- <tr>
-   <td>11</td>
-   <td>TOP</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.8</td>
-   <td>2.2</td>
-   <td>ff</td>
-   <td>1.75</td>
-   <td>41</td>
- </tr>
- <tr>
-   <td>12</td>
-   <td>TOP</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.85</td>
-   <td>2.5</td>
-   <td>tt</td>
-   <td>1.8</td>
-   <td>26</td>
- </tr>
- <tr>
-   <td>13</td>
-   <td>TOP</td>
-   <td>Cov_vout : range<br>Cov_vout : level</td>
-   <td>1.8</td>
-   <td>2.2</td>
-   <td>ff</td>
-   <td>1.75</td>
-   <td>41</td>
- </tr>
- <tr>
-			<input type="submit" value="Submit" >
+				<tr>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
+				</tr>
+				 <tr>
+				   <th>Sim ID</th>
+				   <th>Top Module <br>Simulated</th>
+				   <th>Coverage Monitor <br>Present</th>
+				   <th>Vin<br>(V)</th>
+				   <th>I_Load<br>(mA)</th>
+				   <th>Process</th>
+				   <th>Voltage</th>
+				   <th>Temperature</th>
+				 </tr>
+				 <tr>
+				   <td>1</td>
+				   <td>PSU</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>27</td>
+				 </tr>
+				 <tr>
+				   <td>2</td>
+				   <td>PSU</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>sf</td>
+				   <td>1.8</td>
+				   <td>27</td>
+				 </tr>
+				 <tr>
+				   <td>3</td>
+				   <td>PSU</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				 </tr>
+				 <tr>
+				   <td>4</td>
+				   <td>LDO</td>
+				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				 </tr>
+				 <tr>
+				   <td>5</td>
+				   <td>LDO</td>
+				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>fs</td>
+				   <td>1.7</td>
+				   <td>45</td>
+				 </tr>
+				 <tr>
+				   <td>6</td>
+				   <td>LDO</td>
+				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>26</td>
+				 </tr>
+				 <tr>
+				   <td>7</td>
+				   <td>LDO</td>
+				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>22</td>
+				 </tr>
+				 <tr>
+				   <td>8</td>
+				   <td>TOP</td>
+				   <td>Cov_vdd : deglitch</td>
+				   <td>1.85</td>
+				   <td>1.8</td>
+				   <td>sf</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				 </tr>
+				 <tr>
+				   <td>9</td>
+				   <td>TOP</td>
+				   <td>Cov_vdd : deglitch</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				 </tr>
+				 <tr>
+				   <td>10</td>
+				   <td>TOP</td>
+				   <td>Cov_vdd : deglitch</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				 </tr>
+				 <tr>
+				   <td>11</td>
+				   <td>TOP</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>ff</td>
+				   <td>1.75</td>
+				   <td>41</td>
+				 </tr>
+				 <tr>
+				   <td>12</td>
+				   <td>TOP</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>26</td>
+				 </tr>
+				 <tr>
+				   <td>13</td>
+				   <td>TOP</td>
+				   <td>Cov_vout : range<br>Cov_vout : level</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>ff</td>
+				   <td>1.75</td>
+				   <td>41</td>
+				 </tr>
+				 <tr> <td colspan="8">  <input type="submit" value="Submit" align="center"> </td></tr>
+			</table>
 		</div>
 	</form>
 	</div>
