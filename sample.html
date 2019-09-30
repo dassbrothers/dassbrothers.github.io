@@ -29,7 +29,17 @@
 	<title>SQL Queries</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="generator" content="Geany 1.32" />
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	<!-- tablesorter widgets (optional) -->
+	<script type="text/javascript" src="jquery.tablesorter.widgets.js"></script>
+
+	<link rel="stylesheet" href="theme.default.css">
+	<script src="demo_script_src.js"></script>
 	<style>
 	table {
 	  font-family: arial, sans-serif;
@@ -55,7 +65,7 @@
 	<form action="nextpage.html">
 		Coverage Objects : 
 		<div id="top_container">
-			<div="child">
+			<div id="child">
 				<select class="coverage_object" >
 						<option value="-">Select</option>
 						<option value = "vout_cg1"> Vout_cg1 </option>
@@ -67,101 +77,32 @@
 				<select id="coverage_type" >
 						<option value="-">Select</option>
 				</select>
-			<br>
+				<br>
+				</div>
 			</div>
-		</div>
 		<input type="button" id="add" value="Add new Coverage Object"> 
 		
-			<!-- <div>
-				<input type="checkbox" id="vdd" value="vdd"> Vdd </input> 								
-				<select id = "vddArtefact">
-				  <option value="-">Select</option>
-				  <option value="range">Range</option>
-				  <option value="level">Level</option>
-				  <option value="glitch">Glitch</option>
-				</select>
-				<br>
-				
-				<input type="checkbox" id="vout" value="vout"> Vout
-				<select id = "voutArtefact">
-				  <option value="-">Select</option>
-				  <option value="range">Range</option>
-				  <option value="level">Level</option>
-				  <option value="glitch">Glitch</option>
-				</select>
-				<br>
-				<input type="checkbox" id="vin" value="vin"> Vin
-				<select id = "vinArtefact">
-				  <option value="-">Select</option>
-				  <option value="range">Range</option>
-				  <option value="level">Level</option>
-				  <option value="glitch">Glitch</option>
-				</select>
-				<br><br>
-				
-			</div> -->
 			<input type="button" id="but" value="Submit">
 			<p id="demo"></p>
 			
 		<div id = "data" style="display: none">		
 			<p> Each column wiil have filter and sort options. </p>
 			
-			<!-- <table id="myTable">
-			  <tr>
-				<th>Company</th>
-				<th>Contact</th>
-				<th>Country</th>
-				<th>Select / (Select All)</th>
-			  </tr>
-			  <tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-				<th><input type='checkbox' id = 'row1'></th>
-			  </tr>
-			  <tr>
-				<td>Centro comercial Moctezuma</td>
-				<td>Francisco Chang</td>
-				<td>Mexico</td>
-				<th><input type='checkbox' id = 'row2'></th>
-			  </tr>
-			  <tr>
-				<td>Ernst Handel</td>
-				<td>Roland Mendel</td>
-				<td>Austria</td>
-				<th><input type='checkbox' id = 'row3'></th>
-			  </tr>
-			  <tr>
-				<td>Island Trading</td>
-				<td>Helen Bennett</td>
-				<td>UK</td>
-				<th><input type='checkbox' id = 'row4'></th>
-			  </tr>
-			  <tr>
-				<td>Laughing Bacchus Winecellars</td>
-				<td>Yoshi Tannamuri</td>
-				<td>Canada</td>
-				<th><input type='checkbox' id = 'row5'></th>
-			  </tr>
-			  <tr>
-				<td>Magazzini Alimentari Riuniti</td>
-				<td>Giovanni Rovelli</td>
-				<td>Italy</td>
-				<th><input type='checkbox' id = 'row6'></th>
-			  </tr>
-			</table> -->
-			<table>
+			<!--<table>
 				<tr>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-					<td><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for companies.." title="Type in a name"></td>
-				</tr>
-				 <tr>
+					<td><input type="text" id="filterSimID" onblur="myFunction()" placeholder="Enter comma separated SimID" title="Type in a name"></td>
+					<td><input type="text" id="filterModule" onkeyup="" placeholder="Search for Modules.." title="Type in a name"></td>
+					<td><input type="text" id="filterCoverae" onkeyup="" placeholder="Search for Coverage Monitor.." title="Type in a name"></td>
+					<td><input type="text" id="filterVin" onblur="" placeholder="Enter range for Vin.." title="Type in a name"></td>
+					<td><input type="text" id="filterLoad" onkeyup="" placeholder="Enter range for I_Load.." title="Type in a name"></td>
+					<td><input type="text" id="filterProc" onkeyup="" placeholder="Search for Processes.." title="Type in a name"></td>
+					<td><input type="text" id="filterVolt" onkeyup="" placeholder="Enter range for Voltage.." title="Type in a name"></td>
+					<td><input type="text" id="filterTemp" onkeyup="" placeholder="Enter range for temperature.." title="Type in a name"></td>
+				</tr> 
+			</table>-->
+			<td><input type="text" id="filterVin" onblur="myFunction()" placeholder="Enter range for Vin.." title="Type in a name"></td>
+			<table id="myTable" class="tablesorter">
+				 <thead><tr>
 				   <th>Sim ID</th>
 				   <th>Top Module <br>Simulated</th>
 				   <th>Coverage Monitor <br>Present</th>
@@ -170,7 +111,9 @@
 				   <th>Process</th>
 				   <th>Voltage</th>
 				   <th>Temperature</th>
-				 </tr>
+				   <th>Select/(Select All) <input type="checkbox" onClick="toggle(this)" /></th>
+				 </tr></thead>
+				 <tbody>
 				 <tr>
 				   <td>1</td>
 				   <td>PSU</td>
@@ -180,6 +123,7 @@
 				   <td>ss</td>
 				   <td>1.8</td>
 				   <td>27</td>
+				   <td><input type="checkbox" name="row" id="row1"></td>
 				 </tr>
 				 <tr>
 				   <td>2</td>
@@ -190,6 +134,7 @@
 				   <td>sf</td>
 				   <td>1.8</td>
 				   <td>27</td>
+				   <td><input type="checkbox" name="row" id="row2"></td>
 				 </tr>
 				 <tr>
 				   <td>3</td>
@@ -200,6 +145,7 @@
 				   <td>ss</td>
 				   <td>1.8</td>
 				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row3"></td>
 				 </tr>
 				 <tr>
 				   <td>4</td>
@@ -210,6 +156,7 @@
 				   <td>tt</td>
 				   <td>1.8</td>
 				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row4"></td>
 				 </tr>
 				 <tr>
 				   <td>5</td>
@@ -220,6 +167,7 @@
 				   <td>fs</td>
 				   <td>1.7</td>
 				   <td>45</td>
+				   <td><input type="checkbox" name="row" id="row5"></td>
 				 </tr>
 				 <tr>
 				   <td>6</td>
@@ -230,6 +178,7 @@
 				   <td>tt</td>
 				   <td>1.8</td>
 				   <td>26</td>
+				   <td><input type="checkbox" name="row" id="row6"></td>
 				 </tr>
 				 <tr>
 				   <td>7</td>
@@ -240,6 +189,7 @@
 				   <td>ss</td>
 				   <td>1.8</td>
 				   <td>22</td>
+				   <td><input type="checkbox" name="row" id="row7"></td>
 				 </tr>
 				 <tr>
 				   <td>8</td>
@@ -250,6 +200,7 @@
 				   <td>sf</td>
 				   <td>1.8</td>
 				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row8"></td>
 				 </tr>
 				 <tr>
 				   <td>9</td>
@@ -260,6 +211,7 @@
 				   <td>ss</td>
 				   <td>1.8</td>
 				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row9"></td>
 				 </tr>
 				 <tr>
 				   <td>10</td>
@@ -270,6 +222,7 @@
 				   <td>tt</td>
 				   <td>1.8</td>
 				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row10"></td>
 				 </tr>
 				 <tr>
 				   <td>11</td>
@@ -280,6 +233,7 @@
 				   <td>ff</td>
 				   <td>1.75</td>
 				   <td>41</td>
+				   <td><input type="checkbox" name="row" id="row11"></td>
 				 </tr>
 				 <tr>
 				   <td>12</td>
@@ -290,6 +244,7 @@
 				   <td>tt</td>
 				   <td>1.8</td>
 				   <td>26</td>
+				   <td><input type="checkbox" name="row" id="row12"></td>
 				 </tr>
 				 <tr>
 				   <td>13</td>
@@ -300,13 +255,13 @@
 				   <td>ff</td>
 				   <td>1.75</td>
 				   <td>41</td>
+				   <td><input type="checkbox" name="row" id="row13"></td>
 				 </tr>
-				 <tr> <td colspan="8">  <input type="submit" value="Submit" align="center"> </td></tr>
+				 </tbody>
+				 <tr> <td colspan="8" style=" text-align : center">  <input type="submit" value="Submit" > </td></tr>
 			</table>
 		</div>
 	</form>
 	</div>
 </body>
- <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
-<script src="demo_script_src.js"></script>
 </html>

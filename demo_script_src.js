@@ -58,31 +58,50 @@ $(document).ready(function() {
 $(document).ready(function() { 
 	$("#add").click(function() {
 		
-		/*var div = "<div='child'> <select id='coverage_object' >	<option value='-'>Select</option> <option value = 'Range_vout'> Range_vout </option> <option value = 'Cov_vout'> Cov_vout </option> <option value = 'Cov_vdd'> Cov_vdd </option> </select> <select id='coverage_type' > <option value='-'>Select</option> <option value = 'vout'> Vout </option> <option value = 'vdd'> Vdd </option> <option value = 'vin'> Vin </option> </select> <br> </div>";*/
-		
-		var div = "<div='child'> <select class='coverage_object' > <option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> </select> <select id='coverage_type' > <option value='-'>Select</option> </select> <br> </div> " ;
+		var div = "<div id='child'> <select class='coverage_object'> <option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> </select> <select id='coverage_type' > <option value='-'>Select</option> </select> <br> </div> " ;
 		
 		$("#top_container").append(div);
 	});
 });
 
-
+$(function(){
+    $("#myTable").tablesorter();
+});
 
 function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
+  var input, table, tr, td, i, txtValue;
+  var flag = 1;
+  input = document.getElementById("filterVin");
+	if(!(input.value.indexOf("-") > -1 )){
+		flag = -1;
+	}
+	  var filter = input.value.toUpperCase().split('-');
+	  //console.log(filter);
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  //console.log("checking for : "+filter[0] + " : " + filter[1]);
+		for (i = 0; i < tr.length; i++) {	
+			td = tr[i].getElementsByTagName("td")[3];
+			if (td) {
+			  txtValue = td.textContent || td.innerText;
+			  console.log(txtValue);
+			  //if (txtValue.toUpperCase().indexOf(filter[j]) > -1) {
+			  if(flag == -1){
+				tr[i].style.display = "";
+			  }
+			  else if(txtValue >= filter[0] && txtValue <= filter[1]){
+				console.log("found");
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			}
+		}
+}
+
+function toggle(source) {
+  checkboxes = document.getElementsByName('row');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
   }
 }
