@@ -70,7 +70,7 @@
 </div>
 <div class="row">
 	<div class="col-sm-4">
-	<input type="checkbox" name="Sim_ID" value="Sim_ID"> Sim_ID
+	<input type="checkbox" name="sim_id" id="sim_id" value="Sim_ID"> Sim_ID
 	</div>
 	<div class="col-sm-8">
 	<select>
@@ -81,7 +81,7 @@
 </div>
 <div class="row">
 	<div class="col-sm-4">
-	<input type="checkbox" name="Bins" value="Bins"> Bins
+	<input type="checkbox" name="bins" id="bins" value="Bins"> Bins
 	</div>
 	<div class="col-sm-8">
 	<select>
@@ -99,17 +99,17 @@
 </div>
 <div class="row">
 	<div class="col-sm-4">
-	<input type="checkbox" name="Time" value="Time"> Time
+	<input type="checkbox" name="time" id="time" value="Time"> Time
 	</div>
 	<div class="col-sm-8">
 	<select>
 		<option value="disp"> Display (default) </option>
-		<option value="cnt"> Count </option>
+		<!-- <option value="cnt"> Count </option> -->
 		<option value="union"> Union </option>
 		<option value="intersection"> Intersection </option>
-		<option value="max"> Max </option>
+		<!-- <option value="max"> Max </option>
 		<option value="min"> Min </option>
-		<option value="avg"> Avg. </option>
+		<option value="avg"> Avg. </option> -->	
 	</select>
 	</div>
 	<br><br>
@@ -151,23 +151,25 @@
 	<div class="col-sm-2">
 		<select id="coverage_type_bin"> </select>
 	</div>
-	<div class="col-sm-2">
-	<select>
-		<option value="sel"> Select </option>
-		<option value="gt">Greater than </option>
-		<option value="lt">Less than </option>
-		<option value="eq">Equals </option>
-		<option value="neq">Not equals</option>
-		<option value="btwn"> Between </option>
-		<option value="nbtwn"> Not Between </option>
-	</select>
-	</div>
-	<div class="col-sm-2">
-	<input type="text" name="binRange1" value="" style="width : 90%">
-	</div>
-	<div class="col-sm-2">
-	<input type="text" name="binRange2" value="" style="width : 90%">
-	</div>
+	
+		<div class="col-sm-2">
+		<select>
+			<option value="sel"> Select </option>
+			<option value="gt">Greater than </option>
+			<option value="lt">Less than </option>
+			<option value="eq">Equals </option>
+			<option value="neq">Not equals</option>
+			<option value="btwn"> Between </option>
+			<option value="nbtwn"> Not Between </option>
+		</select>
+		</div>
+		<div class="col-sm-2">
+		<input type="text" name="binRange1" value="" style="width : 90%">
+		</div>
+		<div class="col-sm-2">
+		<input type="text" name="binRange2" value="" style="width : 90%">
+		</div>
+	
 	<br>
 </div>
 <div class="row">
@@ -186,6 +188,7 @@
 	<div class="col-sm-2">
 		<select id="coverage_type_time"> </select>
 	</div>
+	
 	<div class="col-sm-2">
 	<select>
 		<option value="sel"> Select </option>
@@ -203,6 +206,8 @@
 	<div class="col-sm-2">
 	<input type="text" name="timeRange2" value="" style="width : 90%">
 	</div>
+	
+	
 	<br>
 </div>
 <div class="row">
@@ -240,14 +245,16 @@
 	</div>
 	<br>
 </div>
-<!--
-<div>
-	<h5>Target </h5>
-	Lower Bound : <input type = number step=".01" id="lowerBound">  Upper Bound : <input type = number step=".01" id="upperBound">  
+<br>
+<div class="row">
+	<input type="button" value="Submit" onclick="display()"> 
 </div>
--->
-	<input type="submit" value="Submit" > <br><br>
-</div> 
+<br>
+<div class="row">
+		<div class="col-sm-12"><h5 id="display">  </h5></div>
+</div>
+<br><br>
+</div>
 
 	<div id = "data">
 		<table id="myTable">
@@ -262,7 +269,7 @@
 				   <th>Temperature</th>				   
 				 </tr></thead>
 				 <tbody>
-				 <tr>
+				 <tr id = "row1">
 				   <td>1</td>
 				   <td>PSU</td>
 				   <td>Cov_vout : range<br>Cov_vout : level</td>
@@ -272,7 +279,7 @@
 				   <td>1.8</td>
 				   <td>27</td>
 				 </tr>
-				 <tr>
+				 <tr id = "row2">
 				   <td>2</td>
 				   <td>PSU</td>
 				   <td>Cov_vout : range<br>Cov_vout : level</td>
@@ -282,7 +289,7 @@
 				   <td>1.8</td>
 				   <td>27</td>
 				 </tr>
-				 <tr>
+				 <tr id = "row4">
 				   <td>4</td>
 				   <td>LDO</td>
 				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
@@ -292,7 +299,7 @@
 				   <td>1.8</td>
 				   <td>29</td>
 				 </tr>
-				 <tr>
+				 <tr id = "row6">
 				   <td>6</td>
 				   <td>LDO</td>
 				   <td>Cov_vdd : deglitch<br>Cov_vout : level<br>Cov_vout : range</td>
@@ -303,7 +310,7 @@
 				   <td>26</td>
 				 </tr>
 				 <tr>
-				 <tr>
+				 <tr id = "row8">
 				   <td>8</td>
 				   <td>TOP</td>
 				   <td>Cov_vdd : deglitch</td>
@@ -313,7 +320,7 @@
 				   <td>1.8</td>
 				   <td>29</td>
 				 </tr>
-				 <tr>
+				 <tr id = "row10">
 				   <td>10</td>
 				   <td>TOP</td>
 				   <td>Cov_vdd : deglitch</td>
@@ -323,7 +330,7 @@
 				   <td>1.8</td>
 				   <td>29</td>
 				 </tr>
-				 <tr>
+				 <tr id = "row11">
 				   <td>11</td>
 				   <td>TOP</td>
 				   <td>Cov_vout : range<br>Cov_vout : level</td>
@@ -332,7 +339,7 @@
 				   <td>ff</td>
 				   <td>1.75</td>
 				   <td>41</td>
-				 </tr>
+				 </tr id = "row13">
 				   <td>13</td>
 				   <td>TOP</td>
 				   <td>Cov_vout : range<br>Cov_vout : level</td>

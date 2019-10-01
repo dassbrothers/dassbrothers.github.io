@@ -112,3 +112,25 @@ function populate1(obj){
 	}else
 		alert("Please select an option");
 }
+
+function display(){
+	var sim_id = document.getElementById("sim_id");
+	var bin = document.getElementById("bins");
+	var time = document.getElementById("time");
+	var para = document.getElementById("display");
+	if(bin.checked){
+		//alert("Display bins");
+		para.innerHTML = "Bins b1 .. b4 are hit between the time interval/hit ratio > ... " ; 
+	}
+	if (time.checked){
+		//alert("Display time");
+		para.innerHTML = "Time [t1:t2] , [t3:t4]  ... " ; 
+	}
+	if(sim_id.checked){
+		var i =2;
+		for(j=i ; j<14;j+=2){
+			var row = document.getElementById("row"+j);
+			row.remove();
+		}
+	}
+}
