@@ -135,10 +135,23 @@
 	<h5>Inputs:</h5>
 </div>
 <div class = "row">
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 	<input type="checkbox" name="Bins" value="Bins"> Bins
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
+		<select id="coverage_object_bin" onchange='populate1(this)'>
+			 <option value='-'>Select</option> 
+			 <option value = 'vout_cg1'> Vout_cg1 </option> 
+			 <option value = 'vdd_cg1'> vdd_cg1 </option> 
+			 <option value = 'vout_cg2'> vout_cg2 </option> 
+			 <option value = 'vin_cg2'> vin_cg2 </option> 
+		</select> 
+		
+	</div>
+	<div class="col-sm-2">
+		<select id="coverage_type_bin"> </select>
+	</div>
+	<div class="col-sm-2">
 	<select>
 		<option value="sel"> Select </option>
 		<option value="gt">Greater than </option>
@@ -149,17 +162,31 @@
 		<option value="nbtwn"> Not Between </option>
 	</select>
 	</div>
-	<div class="col-sm-4">
-	<input type="text" name="binRange1" value="">
-	<input type="text" name="binRange2" value="">
+	<div class="col-sm-2">
+	<input type="text" name="binRange1" value="" style="width : 90%">
+	</div>
+	<div class="col-sm-2">
+	<input type="text" name="binRange2" value="" style="width : 90%">
 	</div>
 	<br>
 </div>
 <div class="row">
-	<div class="col-sm-4">
+	<div class="col-sm-2">
 	<input type="checkbox" name="Time" value="Time"> Time
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
+		<select id="coverage_object_time" onchange='populate1(this)'>
+			 <option value='-'>Select</option> 
+			 <option value = 'vout_cg1'> Vout_cg1 </option> 
+			 <option value = 'vdd_cg1'> vdd_cg1 </option> 
+			 <option value = 'vout_cg2'> vout_cg2 </option> 
+			 <option value = 'vin_cg2'> vin_cg2 </option> 
+		</select> 
+	</div>
+	<div class="col-sm-2">
+		<select id="coverage_type_time"> </select>
+	</div>
+	<div class="col-sm-2">
 	<select>
 		<option value="sel"> Select </option>
 		<option value="gt">Greater than </option>
@@ -170,17 +197,31 @@
 		<option value="nbtwn"> Not Between </option>
 	</select>
 	</div>
-	<div class="col-sm-4">
-	<input type="text" name="timeRange1" value="">
-	<input type="text" name="timeRange2" value="">
+	<div class="col-sm-2">
+	<input type="text" name="timeRange1" value="" style="width : 90%">
+	</div>
+	<div class="col-sm-2">
+	<input type="text" name="timeRange2" value="" style="width : 90%">
 	</div>
 	<br>
 </div>
 <div class="row">
-	<div class="col-sm-4">
-	<input type="checkbox" name="HitRatio" value="HitRatio"> Hit_Ratio &nbsp;
+	<div class="col-sm-2">
+	<input type="checkbox" name="HitRatio" value="HitRatio"> Hit_Ratio
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-2">
+		<select id="coverage_object_hr" onchange='populate1(this)'>
+			 <option value='-'>Select</option> 
+			 <option value = 'vout_cg1'> Vout_cg1 </option> 
+			 <option value = 'vdd_cg1'> vdd_cg1 </option> 
+			 <option value = 'vout_cg2'> vout_cg2 </option> 
+			 <option value = 'vin_cg2'> vin_cg2 </option> 
+		</select> 
+	</div>
+	<div class="col-sm-2">
+		<select id="coverage_type_hr"> </select>
+	</div>
+	<div class="col-sm-2">
 	<select>
 		<option value="sel"> Select </option>
 		<option value="gt">Greater than </option>
@@ -191,9 +232,11 @@
 		<option value="nbtwn"> Not Between </option>
 	</select>
 	</div>
-	<div class="col-sm-4">
-	<input type="text" name="hr" value="">
-	<input type="text" name="hr" value="">
+	<div class="col-sm-2">
+	<input type="text" name="hr" value="" style="width : 90%">
+	</div>
+	<div class="col-sm-2">
+	<input type="text" name="hr" value="" style="width : 90%">
 	</div>
 	<br>
 </div>
@@ -309,4 +352,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="demo_script_src.js"></script>
 </html>

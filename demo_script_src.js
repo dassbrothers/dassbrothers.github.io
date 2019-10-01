@@ -90,3 +90,25 @@ function toggle(source) {
     checkboxes[i].checked = source.checked;
   }
 }
+
+/*****************/
+//script for next page.html
+/*****************/
+function populate1(obj){
+	//alert(obj.value + " " +obj.id);
+	var type = obj.id.split('_');
+	//alert(type[type.length-1]);
+	var cov_type_id = document.getElementById("coverage_type_"+type[type.length - 1]);
+	$(cov_type_id).empty();
+	var val = obj.value;
+	if(val.indexOf("cg1") != -1){
+		let cg = {'-':'Select','range':'Range','level':'Level','deglitch':'Deglitch'};
+		for(let c in cg){$(cov_type_id).append($('<option>',{value: c,text: cg[c]}))}	
+		console.log(val.indexOf('cg1'));
+	}else if(val.indexOf("cg2") != -1){
+		let cg = {'-':'Select','level':'Level','ddt':'Ddt'};
+		for(let c in cg){$(cov_type_id).append($('<option>',{value: c,text: cg[c]}))}
+		console.log(val.indexOf('cg2'));
+	}else
+		alert("Please select an option");
+}
