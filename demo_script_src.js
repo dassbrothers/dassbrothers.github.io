@@ -25,6 +25,7 @@ function populate(obj){
 	var type = obj.id.split('_');
 	//alert(type[type.length-1]);
 	var cov_type_id = document.getElementById("coverage_type_" + type[type.length-1]);
+	$(cov_type_id).empty();
 	var val = obj.value;
 	if(val.indexOf("cg1") != -1){
 		let cg = {'-':'Select','range':'Range','level':'Level','deglitch':'Deglitch'};
@@ -38,12 +39,93 @@ function populate(obj){
 		alert("Please select an option");
 }
 
+function popmodule(obj){
+	//alert(obj.value + " " + obj.id);
+	var type = obj.id.split('_');
+	var module = document.getElementById("module_"+ type[type.length-1]);
+	$(module).empty();
+	var val = obj.value;
+	if(val.indexOf("top") != -1){
+		let cg = {'-':'Select','psu':'PSU','pmu':'PMU'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}	
+	}else{
+		alert("Please select an option");
+	}
+	
+}
+
+function popsubmodule(obj){
+	//alert(obj.value + " " + obj.id);
+	var type = obj.id.split('_');
+	var module = document.getElementById("submodule_"+ type[type.length-1]);
+	$(module).empty();
+	var val = obj.value;
+	if(val.indexOf("psu") != -1){
+		let cg = {'-':'Select','ldo1':'LDO_1','ldo2':'LDO_2'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}	
+	}else if(val.indexOf("pmu") != -1){
+		alert("PMU logic selected");
+	}else{
+		alert("Please select an option");
+	}
+}
+
+
+function popparams(obj){
+	//alert(obj.value + " " + obj.id);
+	var type = obj.id.split('_');
+	var module = document.getElementById("params_"+ type[type.length-1]);
+	$(module).empty();
+	var val = obj.value;
+	if(val.indexOf("ldo1") != -1){
+		let cg = {'-':'Select','vout':'Vout','vdd':'Vdd','vin':'Vin'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}	
+	}else if(val.indexOf("ldo2") != -1){
+		let cg = {'-':'Select','vout':'Vout','vdd':'Vdd'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}	
+	}
+	else{
+		alert("Please select an option");
+	}
+}
+
+function popcovobj(obj){
+	//alert(obj.value + " " + obj.id);
+	var type = obj.id.split('_');
+	var module = document.getElementById("coverage_object_"+ type[type.length-1]);
+	$(module).empty();
+	var val = obj.value;
+	if(val.indexOf("vout") != -1){
+		let cg = {'-':'Select','vout_cg1':'Vout_cg1','vout_cg2':'Vout_cg2'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}
+	}else if(val.indexOf("vdd") != -1){
+		let cg = {'-':'Select','vdd_cg1':'Vdd_cg1'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}
+	}else if(val.indexOf("vin") != -1){
+		let cg = {'-':'Select','vin_cg2':'Vin_cg2'};
+		for(let c in cg){$(module).append($('<option>',{value: c,text: cg[c]}))}
+	}else{
+		alert("Please select an option");
+	}
+}
+
+
 $(document).ready(function() { 
 	$("#add").click(function() {
 		
 		/*var div = "<div id='child'> <select class='coverage_object'> <option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> </select> <select id='coverage_type' > <option value='-'>Select</option> </select> <br> </div> " ;
 		*/
-		var div = "<div id='child'> <select id=coverage_object_"+global_cnt+" onchange='populate(this)'> <option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> </select> <select id=coverage_type_"+global_cnt +" > </select> <br> </div>  ";
+		
+		/*var div = "<div id='child'> <select id=coverage_object_"+global_cnt+" onchange='populate(this)'> <option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> </select> <select id=coverage_type_"+global_cnt +" > </select> <br> </div>  ";
+		*/
+		
+		/*
+		<option value='-'>Select</option> <option value = 'vout_cg1'> Vout_cg1 </option> <option value = 'vdd_cg1'> vdd_cg1 </option> <option value = 'vout_cg2'> vout_cg2 </option> <option value = 'vin_cg2'> vin_cg2 </option> 
+		*/
+		
+		var div = "<div id='child'> <select id=top_module_"+ global_cnt+ " onchange='popmodule(this)'> <option value='-'> Select</option> <option value='top'> TOP</option></select> <select id=module_" +global_cnt+ " onchange='popsubmodule(this)'> </select> <select id=submodule_" +global_cnt+ " onchange='popparams(this)'> </select> <select id=params_"+global_cnt+" onchange='popcovobj(this)'> </select> <select id=coverage_object_"+global_cnt+" onchange='populate(this)'> </select> <select id=coverage_type_"+global_cnt +" > </select> <br> </div>  ";
+		
+		
 		global_cnt++;
 		$("#top_container").append(div);
 	});
