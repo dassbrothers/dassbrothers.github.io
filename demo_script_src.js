@@ -216,3 +216,25 @@ function display(){
 		}
 	}
 }
+
+$(document).ready(function() { 
+	
+		var div = "<div id=range_"+ global_cnt +" style='width:30%; float:left' > <select> <option value='-'> Select</option> " + "<option value='gt'>Greater than </option> <option value='lt'>Less than </option> <option value='eq'>Equals </option> <option value='neq'>Not equals</option> <option value='btwn'> Between </option> <option value='nbtwn'> Not Between </option> </select> </div>" +
+		"<div id=lval_" + global_cnt + " style='width:30%; float:left'>	<input type='text' name='hr' style='width : 90%'> </div> " +
+		" <div id=rval_"+ global_cnt + " style='width:30%; float:left'> <input type='text' name='hr' style='width : 90%'> </div> " +
+		"<div id=button_" + global_cnt + " style='width:10%; float:right'> </div>"+
+		"<br>";
+		
+	$("#Add1").click(function() {
+		global_cnt++;
+		$("#child_1").append(div);
+	});
+	$("#Add2").click(function() {
+		global_cnt++;
+		$("#child_2").append(div);
+	});
+	$("#Add3").click(function() {
+		global_cnt++;
+		$("#child_3").append(div);
+	});
+});

@@ -135,10 +135,11 @@
 	<h5>Inputs:</h5>
 </div>
 <div class = "row">
-	<div class="col-sm-2">
+<div class="col-sm-6 col-md-6 col-lg-6"">
+	<div style="width:30%; float:left">
 	<input type="checkbox" name="Bins" value="Bins"> Bins
 	</div>
-	<div class="col-sm-2">
+	<div style="width:30%; float:left">
 		<select id="coverage_object_bin" onchange='populate1(this)'>
 			 <option value='-'>Select</option> 
 			 <option value = 'vout_cg1'> Vout_cg1 </option> 
@@ -148,11 +149,12 @@
 		</select> 
 		
 	</div>
-	<div class="col-sm-2">
+	<div style="width:30%; float:right">
 		<select id="coverage_type_bin"> </select>
 	</div>
-	
-		<div class="col-sm-2">
+</div>
+<div id="child_1" class="col-sm-6 col-md-6 col-lg-6">	
+		<div style="width:30% ; float:left" >
 		<select>
 			<option value="sel"> Select </option>
 			<option value="gt">Greater than </option>
@@ -161,22 +163,26 @@
 			<option value="neq">Not equals</option>
 			<option value="btwn"> Between </option>
 			<option value="nbtwn"> Not Between </option>
-		</select>
+		</select> 
 		</div>
-		<div class="col-sm-2">
+		<div style="width:30%; float:left">
 		<input type="text" name="binRange1" value="" style="width : 90%">
 		</div>
-		<div class="col-sm-2">
+		<div style="width:30%; float:left">
 		<input type="text" name="binRange2" value="" style="width : 90%">
 		</div>
-	
+		<div style="width:10%; float:right">
+		<input type="button" id="Add1" name="" value="ADD" style="width : 90%">
+		</div>
+</div>
 	<br>
 </div>
 <div class="row">
-	<div class="col-sm-2">
+<div class="col-sm-6 col-md-6 col-lg-6">
+	<div  style="width:30%; float:left">
 	<input type="checkbox" name="Time" value="Time"> Time
 	</div>
-	<div class="col-sm-2">
+	<div  style="width:30%; float:left">
 		<select id="coverage_object_time" onchange='populate1(this)'>
 			 <option value='-'>Select</option> 
 			 <option value = 'vout_cg1'> Vout_cg1 </option> 
@@ -185,11 +191,12 @@
 			 <option value = 'vin_cg2'> vin_cg2 </option> 
 		</select> 
 	</div>
-	<div class="col-sm-2">
+	<div  style="width:30%; float:right">
 		<select id="coverage_type_time"> </select>
 	</div>
-	
-	<div class="col-sm-2">
+</div>
+<div id="child_2" class="col-sm-6 col-md-6 col-lg-6">
+	<div  style="width:30%; float:left">
 	<select>
 		<option value="sel"> Select </option>
 		<option value="gt">Greater than </option>
@@ -200,21 +207,24 @@
 		<option value="nbtwn"> Not Between </option>
 	</select>
 	</div>
-	<div class="col-sm-2">
+	<div  style="width:30%; float:left">
 	<input type="text" name="timeRange1" value="" style="width : 90%">
 	</div>
-	<div class="col-sm-2">
+	<div  style="width:30%; float:left">
 	<input type="text" name="timeRange2" value="" style="width : 90%">
 	</div>
-	
-	
+	<div style="width:10%; float:right">
+	<input type="button" id="Add2" name="" value="ADD" style="width : 90%">
+	</div>
+</div>
 	<br>
 </div>
 <div class="row">
-	<div class="col-sm-2">
+<div class="col-sm-6 col-md-6 col-lg-6">
+	<div style="width:30%; float:left">
 	<input type="checkbox" name="HitRatio" value="HitRatio"> Hit_Ratio
 	</div>
-	<div class="col-sm-2">
+	<div style="width:30%; float:left">
 		<select id="coverage_object_hr" onchange='populate1(this)'>
 			 <option value='-'>Select</option> 
 			 <option value = 'vout_cg1'> Vout_cg1 </option> 
@@ -223,12 +233,14 @@
 			 <option value = 'vin_cg2'> vin_cg2 </option> 
 		</select> 
 	</div>
-	<div class="col-sm-2">
+	<div style="width:30%; float:right">
 		<select id="coverage_type_hr"> </select>
 	</div>
-	<div class="col-sm-2">
+</div>
+<div id="child_3" class="col-sm-6 col-md-6 col-lg-6">
+	<div id="range_0" style="width:30%; float:left">
 	<select>
-		<option value="sel"> Select </option>
+		<option value="-"> Select </option>
 		<option value="gt">Greater than </option>
 		<option value="lt">Less than </option>
 		<option value="eq">Equals </option>
@@ -237,12 +249,16 @@
 		<option value="nbtwn"> Not Between </option>
 	</select>
 	</div>
-	<div class="col-sm-2">
+	<div id="lval_0" style="width:30%; float:left">
 	<input type="text" name="hr" value="" style="width : 90%">
 	</div>
-	<div class="col-sm-2">
+	<div id="rval_0" style="width:30%; float:left">
 	<input type="text" name="hr" value="" style="width : 90%">
 	</div>
+	<div id="button_0" style="width:10%; float:right">
+	<input type="button" id="Add3" name="Add" value="ADD" style="width : 90%">
+	</div>
+</div>
 	<br>
 </div>
 <br>
@@ -257,7 +273,7 @@
 </div>
 
 	<div id = "data">
-		<table id="myTable">
+		<table id="">
 				 <thead><tr>
 				   <th>Sim ID</th>
 				   <th>Top Module <br>Simulated</th>
