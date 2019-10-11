@@ -202,7 +202,7 @@ function display(){
 	var para = document.getElementById("display");
 	if(bin.checked){
 		//alert("Display bins");
-		para.innerHTML = "Bins b1 .. b4 are hit between the time interval/hit ratio > ... " ; 
+		para.innerHTML = "Bins [b1:b2] , [b3:b4] ...  are hit between the time interval/hit ratio > ... " ; 
 	}
 	if (time.checked){
 		//alert("Display time");
