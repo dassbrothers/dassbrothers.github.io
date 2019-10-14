@@ -1,1 +1,254 @@
 
+<!--
+   sample.html
+   
+   Copyright 2019 sourav <sourav@sourav-V530S-07ICB>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>SQL Query Selector</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.32" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="jquery.tablesorter.js"></script>
+	<!-- tablesorter widgets (optional) -->
+	<script type="text/javascript" src="jquery.tablesorter.widgets.js"></script>
+
+	<link rel="stylesheet" href="theme.default.css">
+	<script src="demo_script_src.js"></script>
+	<style>
+	table {
+	  font-family: arial, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	td, th {
+	  border: 1px solid #dddddd;
+	  text-align: left;
+	  padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	  background-color: #dddddd;
+	}
+	</style>
+	
+</head>
+
+<body>
+	<div>
+	<form action="ti_query_output.html">
+		<h4> Hierarchical Selection of Coverage Objects : </h4>
+		<div id="top_container">
+		</div>
+		<input type="button" id="add" value="Add new Coverage Object"> 
+		
+			<input type="button" id="but" value="Submit">
+			<p id="demo"></p>
+			
+		<div id = "data" style="display: none">		
+			<p> Each column wiil have filter and sort options. </p>
+			
+			<!--<table>
+				<tr>
+					<td><input type="text" id="filterSimID" onblur="myFunction()" placeholder="Enter comma separated SimID" title="Type in a name"></td>
+					<td><input type="text" id="filterModule" onkeyup="" placeholder="Search for Modules.." title="Type in a name"></td>
+					<td><input type="text" id="filterCoverae" onkeyup="" placeholder="Search for Coverage Monitor.." title="Type in a name"></td>
+					<td><input type="text" id="filterVin" onblur="" placeholder="Enter range for Vin.." title="Type in a name"></td>
+					<td><input type="text" id="filterLoad" onkeyup="" placeholder="Enter range for I_Load.." title="Type in a name"></td>
+					<td><input type="text" id="filterProc" onkeyup="" placeholder="Search for Processes.." title="Type in a name"></td>
+					<td><input type="text" id="filterVolt" onkeyup="" placeholder="Enter range for Voltage.." title="Type in a name"></td>
+					<td><input type="text" id="filterTemp" onkeyup="" placeholder="Enter range for temperature.." title="Type in a name"></td>
+				</tr> 
+			</table>-->
+			<td><input type="text" id="filterVin" onblur="myFunction()" placeholder="Enter range for Vin.." title="Type in a name"></td>
+			<table id="myTable" class="tablesorter">
+				 <thead><tr>
+				   <th>Sim ID</th>
+				   <th>Top Module <br>Simulated</th>
+				   <th>Coverage Monitor <br>Present</th>
+				   <th>Vin<br>(V)</th>
+				   <th>I_Load<br>(mA)</th>
+				   <th>Process</th>
+				   <th>Voltage</th>
+				   <th>Temperature</th>
+				   <th>Select/(Select All) <input type="checkbox" onClick="toggle(this)" /></th>
+				 </tr></thead>
+				 <tbody>
+				 <tr>
+				   <td>1</td>
+				   <td>PSU</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>27</td>
+				   <td><input type="checkbox" name="row" id="row1"></td>
+				 </tr>
+				 <tr>
+				   <td>2</td>
+				   <td>PSU</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>sf</td>
+				   <td>1.8</td>
+				   <td>27</td>
+				   <td><input type="checkbox" name="row" id="row2"></td>
+				 </tr>
+				 <tr>
+				   <td>3</td>
+				   <td>PSU</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row3"></td>
+				 </tr>
+				 <tr>
+				   <td>4</td>
+				   <td>LDO</td>
+				   <td>vdd_cg1 : deglitch<br>Vout_cg1 : level<br>Vout_cg1 : range</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row4"></td>
+				 </tr>
+				 <tr>
+				   <td>5</td>
+				   <td>LDO</td>
+				   <td>vdd_cg1 : deglitch<br>Vout_cg1 : level<br>Vout_cg1 : range</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>fs</td>
+				   <td>1.7</td>
+				   <td>45</td>
+				   <td><input type="checkbox" name="row" id="row5"></td>
+				 </tr>
+				 <tr>
+				   <td>6</td>
+				   <td>LDO</td>
+				   <td>vdd_cg1 : deglitch<br>Vout_cg1 : level<br>Vout_cg1 : range</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>26</td>
+				   <td><input type="checkbox" name="row" id="row6"></td>
+				 </tr>
+				 <tr>
+				   <td>7</td>
+				   <td>LDO</td>
+				   <td>vdd_cg1 : deglitch<br>Vout_cg1 : level<br>Vout_cg1 : range</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>22</td>
+				   <td><input type="checkbox" name="row" id="row7"></td>
+				 </tr>
+				 <tr>
+				   <td>8</td>
+				   <td>TOP</td>
+				   <td>vdd_cg1 : deglitch</td>
+				   <td>1.85</td>
+				   <td>1.8</td>
+				   <td>sf</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row8"></td>
+				 </tr>
+				 <tr>
+				   <td>9</td>
+				   <td>TOP</td>
+				   <td>vdd_cg1 : deglitch</td>
+				   <td>1.8</td>
+				   <td>2</td>
+				   <td>ss</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row9"></td>
+				 </tr>
+				 <tr>
+				   <td>10</td>
+				   <td>TOP</td>
+				   <td>vdd_cg1 : deglitch</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>29</td>
+				   <td><input type="checkbox" name="row" id="row10"></td>
+				 </tr>
+				 <tr>
+				   <td>11</td>
+				   <td>TOP</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>ff</td>
+				   <td>1.75</td>
+				   <td>41</td>
+				   <td><input type="checkbox" name="row" id="row11"></td>
+				 </tr>
+				 <tr>
+				   <td>12</td>
+				   <td>TOP</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.85</td>
+				   <td>2.5</td>
+				   <td>tt</td>
+				   <td>1.8</td>
+				   <td>26</td>
+				   <td><input type="checkbox" name="row" id="row12"></td>
+				 </tr>
+				 <tr>
+				   <td>13</td>
+				   <td>TOP</td>
+				   <td>Vout_cg1 : range<br>Vout_cg1 : level</td>
+				   <td>1.8</td>
+				   <td>2.2</td>
+				   <td>ff</td>
+				   <td>1.75</td>
+				   <td>41</td>
+				   <td><input type="checkbox" name="row" id="row13"></td>
+				 </tr>
+				 </tbody>
+				 <tr> <td colspan="8" style=" text-align : center">  <input type="submit" value="Submit" > </td></tr>
+			</table>
+		</div>
+	</form>
+	</div>
+</body>
+</html>
