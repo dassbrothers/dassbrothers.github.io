@@ -25,6 +25,18 @@
             padding: 20px 0;
             text-align: center;
         }
+	.header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+        }
+	header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
         header h1 {
             margin: 0;
             font-size: 36px;
@@ -54,7 +66,7 @@
             color: #333;
         }
         ul {
-            list-style: none;
+            /*list-style: none;*/
             padding: 0;
         }
         ul li {
@@ -73,21 +85,45 @@
         .profile p {
             font-size: 16px;
         }
+.flex-container {
+    display: flex;
+}
+.flex-child {
+    flex: 1;
+    border: 2px solid yellow;
+}  
+.flex-child:first-child {
+    margin-right: 20px;
+} 
     </style>
 </head>
 <body>
     <header>
-        <h1>Sourav Das</h1>
-        <p>Final yr. Ph.D. Candidate, IIT Kharagpur</p>
+	<!-- <div class="header">
+		<img src="images/sourav_2019.jpg" alt="Profile Picture">
+	</div> 
+	<div style="float:left;">-->
+	<h1>Sourav Das</h1>
+	<p>Final yr. Ph.D. Candidate, IIT Kharagpur</p>
         <div class="contact-info">
-            <a href="mailto:sourav.iniesta13@gmail.com">sourav.iniesta13@gmail.com</a> |
+	    <a href="mailto:sourav.iniesta13@gmail.com">sourav.iniesta13@gmail.com</a> |
             <a href="tel:+917358693961">+91 7358693961</a> |
-            <a href="https://dassbrothers.github.io/" target="_blank">Portfolio</a> |
+	    <a href="https://dassbrothers.github.io/" target="_blank">Portfolio</a> |
             <a href="https://linkedin.com/in/sourav-das-7892137a" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/dassbrothers" target="_blank">GitHub</a> |
+	    <a href="https://github.com/dassbrothers" target="_blank">GitHub</a> |
             <a href="https://stackoverflow.com/users/9346926/sourav-das" target="_blank">StackOverflow</a>
-        </div>
+       	<!-- </div> -->
+	</div>
+        
     </header>
+<!--    <div class="flex-container">
+	<div class="flex-child magenta">
+  	  Flex Column 1
+    </div>
+        <div class="flex-child green">
+            Flex Column 2
+        </div>
+    </div> -->
 
     <section class="container profile">
         <h2>Summary</h2>
@@ -208,20 +244,38 @@
         <ul>
             <li>
                 <strong>SHAKTI-MS: A RISC-V Processor for Memory Safety in C</strong><br>
-                Shakti-MS is a lightweight RISC-V processor with built-in support for both temporal and spatial memory protection. It uses novel concepts like fat-pointers and a modified compiler with new hardware instructions to ensure low runtime overheads.
+		<p style="color: #AA4A44;"><em> International Conference on Languages, Compilers, and Tools for Embedded Systems, (LCTES) 2019</em><br></p>
+                <p align="justify"> In this era of IoT devices, security is very often traded off for smaller device footprint and low power consumption. Considering the exponentially growing security threats of IoT and cyber-physical systems, it is important that these devices have built-in features that enhance security. In this paper, we present Shakti-MS, a lightweight RISC-V processor with built-in support for both temporal and spatial memory protection. At run time, Shakti-MS can detect and stymie memory misuse in C and C++ programs, with minimum runtime overheads. The solution uses a novel implementation of fat-pointers to efficiently detect misuse of pointers at runtime. Our proposal is to use stack-based cookies for crafting fat-pointers instead of having object-based identifiers. We store the fat-pointer on the stack, which eliminates the use of shadow memory space, or any table to store the pointer metadata. This reduces the storage overheads by a great extent. The cookie also helps to preserve control flow of the program by ensuring that the return address never gets modified by vulnerabilities like buffer overflows. Shakti-MS introduces new instructions in the microprocessor hardware, and also a modified compiler that automatically inserts these new instructions to enable memory protection. This co-design approach is intended to reduce runtime and area overheads, and also provides an end-to-end solution. The hardware has an area overhead of 700 LUTs on a Xilinx Virtex Ultrascale FPGA and 4100 cells on an open 55nm technology node. The clock frequency of the processor is not affected by the security extensions, while there is a marginal increase in the code size by 11% with an average runtime overhead of 13%. </p>
             </li>
             <li>
                 <strong>The CoveRT Approach for Coverage Management in Analog and Mixed Signal Integrated Circuits. </strong><br>
-                Coverage is a key indicator for verification progress, verification closure, and verification sign-off in an integrated circuit design. The notion of coverage management, namely, the use of coverage information across the design hierarchy to identify verification loopholes, is well understood in the digital context, but requires considerable disambiguation in the analog/mixed-signal (AMS) context. This article develops the core artifacts of AMS coverage and presents a comprehensive coverage management approach based on our tool, CoveRT. Our results, gleaned from live industrial designs, demonstrate the benefits of AMS coverage management across the design hierarchy, both in terms of identifying verification gaps, as well as in finding design bugs. 
+		<p style="color: #AA4A44;"><em> IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD), Vol: 51, Issue: 12, Pages: 5695-5708, 2022 </em><br></p>
+                <p align="justify"> Coverage is a key indicator for verification progress, verification closure, and verification sign-off in an integrated circuit design. The notion of coverage management, namely, the use of coverage information across the design hierarchy to identify verification loopholes, is well understood in the digital context, but requires considerable disambiguation in the analog/mixed-signal (AMS) context. This article develops the core artifacts of AMS coverage and presents a comprehensive coverage management approach based on our tool, CoveRT. Our results, gleaned from live industrial designs, demonstrate the benefits of AMS coverage management across the design hierarchy, both in terms of identifying verification gaps, as well as in finding design bugs. </p>
             </li>
             <li>
                 <strong>CoVerPlan: A Comprehensive Verification Planning Framework Leveraging PSS Specifications.</strong><br>
-                CoVerPlan, is a comprehensive verification framework built to explore the power of action inferencing on test models written in Portable Stimulus Standards (PSS). The proposed verification framework leverages a SAT planner to unwind the actual verification flow from the PSS specifications and automatically synthesizes target-specific constraint-random test benches and formal assertions. CoVerPlan also carries out assertion-based verification of the synthesized properties. 
+		<p style="color: #AA4A44;"><em> ACM Transactions on Design Automation of Electronic Systems (TODAES), Vol: 28, Issue: 1, Pages: 1-32, 2022 </em><br></p>
+                <p align="justify"> With increasing design complexity, the portability of tests across different designs and platforms becomes a key criterion for accelerating verification closure. The Portable Test and Stimulus Standard (PSS) is an emerging industry standard prepared by Accellera for system-on-chip verification and testing. It provides language constructs to create a target-agnostic representation of stimulus and test scenarios reused by various users across many levels of integration. In this paper, we present CoVerPlan, a comprehensive verification framework built to explore the power of action inferencing on test models written in PSS. The proposed verification framework leverages a SAT planner to unwind the actual verification flow from the PSS specifications and automatically synthesizes target-specific constraint-random testbenches and formal assertions. CoVerPlan also carries out assertion-based verification of the synthesized properties. We demonstrate the efficacy of our proposed framework over several case studies, like the AMBA advanced peripheral bus (APB) protocol, a simple RISC processor, and a cache coherence protocol.</p>
             </li>
             <li>
                 <strong>PURSE: Property Ordering Using Runtime Statistics for Multi-Property Verification. </strong><br>
-                PURSE is the first tool that dynamically reorders the properties on the fly by using the runtime statistics dumped by the Property Directed Reachability (PDR) proof engine while execution. The idea is to reorder the goals on the fly after every iteration based on the statistics dumped from the PDR proof engine, so that hard goals do not hinder the easy ones from getting solved. 
+		<p style="color: #AA4A44;"><em> Design, Automation & Test in Europe Conference & Exhibition, (DATE) 2024</em><br></p>
+                <p align="justify">Multi-property verification has emerged as a contemporary challenge in the chip design industry. With designs now encompassing hundreds of properties, conventional sequential verification without information sharing is no longer preferred. Past attempts towards grouping or ordering properties based on cone-of-influence (COI) are typically ineffective for complex designs. This paper introduces PURSE, a novel approach that addresses this challenge by dynamically reordering properties for sequential and incremental solving. By identifying and prioritizing simpler properties, the process accelerates convergence. This article presents two dynamic reordering techniques guided by statistical data gathered from the IC3/Property Directed Reachability (PDR) proof engine. The study compares dynamic ordering strategies against static ordering and a default ordering based on design structure. Empirical results from various industrial designs demonstrate that our proposed methodology performs better in most cases, with up to 25% improvements in convergence.</p>
             </li>
+
+            <li>
+                <strong>PrOFraC: Property Ordering and Frame Clause Reuse for Multi-Property Verification. </strong> <em>(Best Paper Nomination)</em><br>
+		<p style="color: #AA4A44;"><em> International Conference on VLSI Design, (VLSID) 2025</em><br></p>
+                <p align="justify">In current formal verification practice, information sharing is common across engines attempting to prove multiple formal properties. Recent literature attempts to address multi-property verification via property clustering or ordering based on cone-of-influence (COI), which often becomes ineffective with rising design complexity. In this paper, we introduce PrOFraC, which initially unfolds the design to a certain depth, restructures the goals and employs a modified version of the Property Directed Reachability (PDR) engine that starts proving the goals from the latest frame instead of frame zero.PrOFraC restructures the goals by removing the falsified ones, adding the proven ones as constraints, and reordering the unsolved goals based on statistical data collected during the initial unfolding phase. We demonstrate our results on the hardware model checking competition (HWMCC) benchmarks. We also compare our method with traditional IC3/PDR versions that deploy sequential or concurrent processing of properties. Experimental results demonstrate that PrOFraC solves 2461 more properties across 30 different designs than the traditional sequential approach.</p>
+            </li>
+
+	    <li>
+                <strong>SISCO: Selective Invariant Sharing, Clustering and Ordering for Effective Multi-Property Formal Verification. </strong><br>
+		<p style="color: #AA4A44;"><em> Asia and South Pacific Design Automation Conference, (ASP-DAC) 2025</em><br></p>
+                <p align="justify">Multi-property formal verification remains a significant challenge in the chip design industry. With hundreds of property goals to verify in a design, several questions arise regarding goal ordering and grouping of properties, sharing of information across proven properties, and other heuristics to improve the verification productivity. This paper introduces SISCO, a novel method for addressing multi-property verification in complex designs. SISCO unfolds properties to a certain depth, clusters them, reorders properties within each cluster, and then uses a modified version of IC3/Property Directed Reachability (PDR) algorithm for efficient verification. The method stores the invariants of proven properties and selectively shares them while solving undecided goals. Additionally, SISCO keeps track of counter-example traces of falsified goals to assist verification. Experimental results demonstrate that clustering and ordering help solve more goals while selective invariant sharing accelerates the process. SISCO achieves a significant average improvement of 4.73X in the runtime of individual goals compared to all invariant sharing.</p>
+            </li>
+
+
         </ul>
     </section>
 
@@ -232,7 +286,7 @@
                 <strong>Bifrost: Covert Data Exfiltration from Air-gapped Networks via Smart Bulbs</strong><br>
                 Bifrost exploits security weaknesses in IoT devices to exfiltrate data by manipulating smart bulb intensities and colors.
                 <ul>
-                    <li><em>Finalist in Cyber Security Awareness Week Embedded Security Challenge, Kanpur, 2018</em></li>
+                    <li style="color: #AA4A44;"><em>Finalist in Cyber Security Awareness Week Embedded Security Challenge, Kanpur, 2018</em></li>
                 </ul>
             </li>
             <li>
