@@ -36,6 +36,7 @@
             height: 100px;
             border-radius: 50%;
             margin-right: 20px;
+	    float: left;
         }
         header h1 {
             margin: 0;
@@ -85,24 +86,12 @@
         .profile p {
             font-size: 16px;
         }
-.flex-container {
-    display: flex;
-}
-.flex-child {
-    flex: 1;
-    border: 2px solid yellow;
-}  
-.flex-child:first-child {
-    margin-right: 20px;
-} 
     </style>
 </head>
 <body>
-    <header>
-	<!-- <div class="header">
-		<img src="images/sourav_2019.jpg" alt="Profile Picture">
-	</div> 
-	<div style="float:left;">-->
+	<header>
+	<img src="images/sourav_2019.jpg" alt="Logo">
+	    	
 	<h1>Sourav Das</h1>
 	<p>Final yr. Ph.D. Candidate, IIT Kharagpur</p>
         <div class="contact-info">
@@ -112,25 +101,15 @@
             <a href="https://linkedin.com/in/sourav-das-7892137a" target="_blank">LinkedIn</a> |
 	    <a href="https://github.com/dassbrothers" target="_blank">GitHub</a> |
             <a href="https://stackoverflow.com/users/9346926/sourav-das" target="_blank">StackOverflow</a>
-       	<!-- </div> -->
-	</div>
-        
-    </header>
-<!--    <div class="flex-container">
-	<div class="flex-child magenta">
-  	  Flex Column 1
-    </div>
-        <div class="flex-child green">
-            Flex Column 2
-        </div>
-    </div> -->
+       	</div>
+	</header>
 
-    <section class="container profile">
+    <section class="container profile" style="margin-top:20px">
         <h2>Summary</h2>
         <p>I am currently working in the field of Formal Verification, with strong interest in multi-property verification and latest SAT solvers. I am exploring the application of different Machine Learning techniques in Formal Verification.</p>
     </section>
 
-    <section class="container skills">
+    <section class="container skills" style="margin-top:20px">
         <h2>Skills</h2>
         <ul>
             <li><strong>Programming Languages:</strong> C, Java, C++, Python, HTML, Javascript, CSS, SQL</li>
@@ -146,7 +125,7 @@
                 <strong>Research Intern</strong><br>
                 Synopsys India Pvt. Ltd.<br>
                 01/2022 - Present, Remote, India
-                <ul>
+                <ul list-type="default">
                     <li>Formal Verification Engineer specializing in multi-property verification of hardware designs.</li>
                     <li>Utilizing statistical methods and machine learning techniques to accelerate verification.</li>
                     <li>Aiming to enhance state-of-the-art model checkers like Property Directed Reachability.</li>
